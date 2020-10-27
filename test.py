@@ -3,10 +3,13 @@ from operator import itemgetter
 import math
 from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
+import os
 
 def bmi_calculation():
     #Load JSON data in read mode
-    data = json.load(open('E:\\D_Drive\\prgrm\\Python\\bmi.json', 'r'))
+    path = os.getcwd()
+    data = json.load(open('bmi.json', 'r'))
+    #data = json.load(open('E:\\D_Drive\\prgrm\\Python\\bmi.json', 'r'))
 
     #Fetch height as ht and weight as wt from data in list format
     ht = list(map(itemgetter('HeightCm'), data))
